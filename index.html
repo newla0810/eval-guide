@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>평가 업무 절차 안내</title>
+<title>교육연구부 업무 절차 안내</title>
 <!-- 메신저 미리보기 -->
-<meta name="description" content="교육연구부">
+<meta name="description" content="업무 처리 순서와 관련 양식">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://newla0810.github.io/eval-guide/">
-<meta property="og:title" content="평가 업무 절차 안내">
-<meta property="og:description" content="교육연구부">
+<meta property="og:title" content="교육연구부 업무 절차 안내">
+<meta property="og:description" content="업무 처리 순서와 관련 양식">
 <meta property="og:image" content="https://newla0810.github.io/eval-guide/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="평가 업무 절차 안내">
+<meta property="og:image:alt" content="교육연구부 업무 절차 안내">
 <meta name="twitter:card" content="summary_large_image">
 <!-- 파비콘: 탭 아이콘(PNG·SVG)과 휴대폰 홈 화면 아이콘 -->
 <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACfElEQVR4nOxXTWgTQRT+ZrNJD01jWiUmtk1NiYUKCaKXeBEVpSS56ElosRZRehS9CJ70VhH04sGDlIJU9KyQID0oUhBBFKKoNfhT0yQmaH6kB9Nkx5nUrNlkZRloEw/5TrPvPfb7mJ393jwZdbBPHbTb1rrPU9AAAfYAxIENAc1Q4BUBeVY0r97Izz3O1zKkthiYCAYJlW4Tgh3YRFCKJCXKmcR8JKIKGBwPjzHiKFoIBUqIiyDu8XAvCH3DtLjQQlR3Yq3sk9kenGo1OQf/1MQiT8rrB45oksOuflyZnEZg1A+LLGtypXIZLz68xaXZm/iYWqnGtvb1InT0MHa63ZBNJk19uVLB15UkHkQf4fuPnCbHuSVCEWhUd+3sORzw7W0i5+Cx/aM+XJ++oMaOhcbg9XiayDl4zOMexPFwsCnHudknIEONCZ9nF4ywe2hYXbucTsN653adP5pxy3rFXWYzjFBfY5Zlw/p/1UhoMzoC/k8BsU9xGGEp8UVdJ1Npw/pMNqsbN23xj1xuDC5n0xjY5oDD3geTpNXIjehl/D1m7s9hObNOnCsUYLfZYLVaITXUV40omcLCk6fI5QtNAoh7IkzRRrT9DOi6g6i3i/aOeujugKi3i/YOzfv0gqLeLto7DAWIerto76hHxwk7AiR2MfvWGBT1dtHeoYJxm2y+kSPshuqtj4t6u2jv+MuPRT4XzLBL8UW0AxRXpZJSucWWebQeec4tpe9FPysgp9FiUEqnOHfV7IuxpXc9fu9zUHKInYcebCL+DKcnEncjD/mz2m2KsXhc2tc/26VYSmxi+cVmJSaEdGNDUB3PF9kENv/Tsnoyc2fhdS3zGwAA///IlZ/LAAAABklEQVQDAAICAAeBi+IoAAAAAElFTkSuQmCC" sizes="32x32">
@@ -151,7 +151,7 @@ main{padding-top:24px;padding-bottom:64px}
     <label class="search">
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A635F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
       <span class="sr">절차 검색</span>
-      <input id="q" type="search" placeholder="절차 찾기 (예: 원안, 인정점)" autocomplete="off">
+      <input id="q" type="search" placeholder="절차 찾기 (예: 원안, 방과후)" autocomplete="off">
     </label>
   </div>
 </header>
@@ -199,10 +199,11 @@ main{padding-top:24px;padding-bottom:64px}
 var CONFIG = {
   SHEET_ID: '1VJy55UPSzgytwggHHJR2spY9HRSRi17R25a02dVde-0',      // 시트 주소 /d/ 와 /edit 사이의 긴 문자열
   API_KEY:  'AIzaSyDEUonciGeUrkMKmxXT-Zm90Dt2BMljgi8',
-  TITLE:  '평가 업무 절차 안내',
+  PAGE_TITLE: '교육연구부 업무 절차 안내',   // 브라우저 탭 제목
+  TITLE:  '업무 절차 안내',              // 페이지 머리 큰 제목
   DEPT:   '교육연구부',
   HINT:   '카드를 누르면 처리 순서와 관련 파일이 열립니다.',
-  FOOTER: '내용이 실제와 다르면 교육연구부로 알려 주세요.',
+  FOOTER: '',                           // 맨 아래 문구 (비우면 안 보임)
   RECENT_DAYS: 14,                  // 이 기간 안에 고친 절차에 '최근 수정' 표시
   SHEET_PROC: '절차',
   SHEET_CAT:  '분류'
@@ -522,7 +523,7 @@ var CONFIG = {
   }
 
   function renderHeader() {
-    document.title = CONFIG.TITLE;
+    document.title = CONFIG.PAGE_TITLE || CONFIG.TITLE;
     $('dept').textContent = [CONFIG.DEPT, model.updated ? '최종 수정 ' + model.updated : ''].filter(Boolean).join(' · ');
     $('title').textContent = CONFIG.TITLE;
     $('hint').textContent = CONFIG.HINT || '';
